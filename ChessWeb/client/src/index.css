@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  --board-light: hsl(45, 25%, 85%);
+  --board-dark: hsl(30, 25%, 65%);
+  --highlight: hsl(51, 100%, 50%);
+  --valid-move: hsl(120, 73%, 75%);
+  --selected: hsl(195, 53%, 79%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+  --board-light: hsl(45, 15%, 25%);
+  --board-dark: hsl(30, 15%, 15%);
+  --highlight: hsl(51, 80%, 40%);
+  --valid-move: hsl(120, 60%, 35%);
+  --selected: hsl(195, 40%, 40%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+.chess-piece {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  touch-action: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.chess-piece:hover,
+.chess-piece:active {
+  transform: scale(1.1);
+}
+
+/* Touch feedback for mobile */
+@media (hover: none) and (pointer: coarse) {
+  .chess-piece:active {
+    transform: scale(1.15);
+    opacity: 0.8;
+  }
+}
+
+.chess-square {
+  transition: background-color 0.2s ease;
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Mobile touch feedback */
+@media (hover: none) and (pointer: coarse) {
+  .chess-square:active {
+    filter: brightness(0.9);
+  }
+  
+  .chess-square.selected {
+    box-shadow: inset 0 0 0 4px var(--selected);
+  }
+  
+  .chess-square.valid-move {
+    box-shadow: inset 0 0 0 3px var(--valid-move);
+  }
+}
+
+.chess-square.selected {
+  background-color: var(--selected) !important;
+}
+
+.chess-square.valid-move {
+  background-color: var(--valid-move) !important;
+}
+
+.chess-square.last-move {
+  background-color: var(--highlight) !important;
+}
+
+.piece-white {
+  color: #FFFFFF;
+  text-shadow: 1px 1px 2px #000000;
+}
+
+.piece-black {
+  color: #000000;
+  text-shadow: 1px 1px 2px #FFFFFF;
+}
+
+.board-light {
+  background-color: var(--board-light);
+}
+
+.board-dark {
+  background-color: var(--board-dark);
+}
+
+/* Additional mobile optimizations */
+@media (max-width: 640px) {
+  .chess-square {
+    min-height: 45px;
+    min-width: 45px;
+  }
+  
+  .chess-piece {
+    font-size: 2rem;
+  }
+}
+
+/* Prevent pull-to-refresh on mobile */
+body {
+  overscroll-behavior: none;
+  touch-action: pan-x pan-y;
+}
+
+/* Ensure buttons are touch-friendly */
+button {
+  min-height: 44px;
+  touch-action: manipulation;
+}
+
+/* Mobile-first optimizations */
+@media (hover: none) and (pointer: coarse) {
+  /* Larger touch targets for mobile */
+  .chess-square {
+    min-height: 48px;
+    min-width: 48px;
+  }
+  
+  /* Remove hover effects on touch devices */
+  .chess-piece:hover {
+    transform: none;
+  }
+  
+  /* Improve button feedback */
+  button:active {
+    transform: scale(0.98);
+  }
+}
