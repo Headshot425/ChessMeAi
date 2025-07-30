@@ -1,0 +1,54 @@
+8:38:34 PM: Failed during stage 'building site': Build script returned non-zero exit code: 2 (https://ntl.fyi/exit-code-2)
+8:38:33 PM: Netlify Build                                                 
+8:38:33 PM: ────────────────────────────────────────────────────────────────
+8:38:33 PM: ​
+8:38:33 PM: ❯ Version
+8:38:33 PM:   @netlify/build 35.0.0
+8:38:33 PM: ​
+8:38:33 PM: ❯ Flags
+8:38:33 PM:   accountId: 688a29c497047d39de2f87e7
+8:38:33 PM:   baseRelDir: true
+8:38:33 PM:   buildId: 688a3566a7823120a33e173a
+8:38:33 PM:   deployId: 688a3566a7823120a33e173c
+8:38:33 PM: ​
+8:38:33 PM: ❯ Current directory
+8:38:33 PM:   /opt/build/repo
+8:38:33 PM: ​
+8:38:33 PM: ❯ Config file
+8:38:33 PM:   No config file was defined: using default values.
+8:38:33 PM: ​
+8:38:33 PM: ❯ Context
+8:38:33 PM:   production
+8:38:33 PM: ​
+8:38:33 PM: Build command from Netlify app                                
+8:38:33 PM: ────────────────────────────────────────────────────────────────
+8:38:33 PM: ​
+8:38:33 PM: $ npm run build
+8:38:34 PM: npm error code ENOENT
+8:38:34 PM: npm error syscall open
+8:38:34 PM: npm error path /opt/build/repo/package.json
+8:38:34 PM: npm error errno -2
+8:38:34 PM: npm error enoent Could not read package.json: Error: ENOENT: no such file or directory, open '/opt/build/repo/package.json'
+8:38:34 PM: npm error enoent This is related to npm not being able to find a file.
+8:38:34 PM: npm error enoent
+8:38:34 PM: npm error A complete log of this run can be found in: /opt/buildhome/.npm/_logs/2025-07-30T15_08_34_089Z-debug-0.log
+8:38:34 PM: ​
+8:38:34 PM: "build.command" failed                                        
+8:38:34 PM: ────────────────────────────────────────────────────────────────
+8:38:34 PM: ​
+8:38:34 PM:   Error message
+8:38:34 PM:   Command failed with exit code 254: npm run build (https://ntl.fyi/exit-code-254)
+8:38:34 PM: ​
+8:38:34 PM:   Error location
+8:38:34 PM:   In Build command from Netlify app:
+8:38:34 PM:   npm run build
+8:38:34 PM: ​
+8:38:34 PM:   Resolved config
+8:38:34 PM:   build:
+8:38:34 PM:     command: npm run build
+8:38:34 PM:     commandOrigin: ui
+8:38:34 PM:     publish: /opt/build/repo/dist/public
+8:38:34 PM:     publishOrigin: ui
+8:38:34 PM: Build failed due to a user error: Build script returned non-zero exit code: 2
+8:38:34 PM: Failing build: Failed to build site
+8:38:34 PM: Finished processing build request in 6.518s

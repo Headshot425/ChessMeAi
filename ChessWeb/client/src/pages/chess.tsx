@@ -2,6 +2,7 @@ import { useChessGame } from '../hooks/use-chess-game';
 import { ChessBoard } from '../components/chess-board';
 import { GameControls } from '../components/game-controls';
 import { GameModeSelector } from '../components/game-mode-selector';
+import { AiChat } from '../components/ai-chat';
 import { Button } from '@/components/ui/button';
 import { Color } from '../lib/chess-logic';
 import { useState } from 'react';
@@ -25,6 +26,7 @@ export default function ChessGame() {
   } = useChessGame();
 
   const [showModeSelector, setShowModeSelector] = useState(true);
+  const [showAiChat, setShowAiChat] = useState(false);
 
   const capturedPieces = getCapturedPieces();
   const moveHistoryDisplay = getMoveHistoryDisplay();
@@ -141,6 +143,12 @@ export default function ChessGame() {
       <GameModeSelector
         isVisible={showModeSelector}
         onStartGame={handleStartGame}
+      />
+
+      {/* AI Chat Assistant */}
+      <AiChat
+        isOpen={showAiChat}
+        onToggle={() => setShowAiChat(!showAiChat)}
       />
     </div>
   );
