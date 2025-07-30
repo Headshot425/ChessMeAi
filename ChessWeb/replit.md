@@ -8,6 +8,10 @@ This is a full-stack chess game application built with React (frontend) and Expr
 
 Preferred communication style: Simple, everyday language.
 User interested in: Mobile chess gameplay, AI opponent functionality, deployment options and costs.
+Successfully deployed chess game to Netlify for free hosting.
+Wants to share project on LinkedIn profile.
+Added AI chat assistant feature with OpenAI integration and actual code injection for technical queries.
+Created LinkedIn post templates focusing on technical architecture, AI integration, and deployment strategies for professional networking.
 
 ## System Architecture
 
@@ -58,7 +62,15 @@ User interested in: Mobile chess gameplay, AI opponent functionality, deployment
 - **ChessBoard**: Interactive 8x8 chess board with click handlers
 - **ChessPiece**: Individual piece rendering with Unicode symbols
 - **GameControls**: Game management (new game, undo, resign)
+- **AiChat**: AI assistant with actual code injection for technical queries
 - **Shadcn/ui**: Complete UI component library for consistent design
+
+### AI Chat Assistant (`client/src/components/ai-chat.tsx`)
+- Floating chat interface with OpenAI integration
+- Code injection system loads actual project files into LLM context
+- Fallback responses when OpenAI quota exceeded
+- Technical Q&A about project architecture, implementation, and algorithms
+- Real-time code analysis and explanations
 
 ### Storage Layer (`server/storage.ts`)
 - Abstract storage interface for CRUD operations
